@@ -2,7 +2,7 @@ arr = []
 pas1 = 0
 
 for _ in range(5):
-	num = list(map(int,input().split()))
+	num = list(map(int,input()).split())
 	arr.append(num)
 
 for i in arr:
