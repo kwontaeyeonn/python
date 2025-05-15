@@ -1,19 +1,55 @@
-# def new_func():
-#     for i in range(1,7):
-#         for j in range(1,7):
-#             if i+j == 6:
-#                 print(f'({i}, {j})')
+# def sum(n):
+#     s = 1
+#     for i in range(1,n+1):
+#         s *= i
+#     return s
 
-# new_func()
-# import random as r
+# n = int(input())
+# print(sum(n))
 
-# chr = "abcdefghijklmnopqrstuvwxyz123456789"
+# def maxp(a, b):
+#     if a >= b: 
+#         return a
+#     else: 
+#         return b
 
-# def genPass():
-#     password = ""
-#     for i in range(8): passwd+=r.choice(chr)
-#     return password
+# a, b = map(int,input().split())
+# print(maxp(a, b))
 
-# for i in range(3):
-#     result = genPass()
-#     print(f"암호 {i+1}: {result}")
+# def maxp(a,b):
+#     if a>b:
+#         return a
+#     else:
+#         return b
+    
+# a,b = map(int,input().split())
+# print(f'큰 수 : {maxp(a,b)}')
+
+# def num(a):
+#     if a<2:
+#         return 1
+#     else:
+#         return num + num(a-1)
+
+import random
+def genPass():
+    chr = "abcdefg"
+    passwd = ""
+    for i in range(8):
+        ch = random.choice(chr)
+        passwd += ch
+    return passwd
+
+import random
+def pw_crt():
+	list = "aeiou"
+	passwd = ""
+	for i in range(4):
+		passwd = random.choice(chr(list))
+
+print("*", pw_crt())
+
+
+for i in range(3):
+    result = genPass()
+    print(f"암호 {i+1}: {result}")

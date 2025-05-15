@@ -1,16 +1,10 @@
-arr = []
-pas1 = 0
+def abs(num):
+    return num if num >= 0 else -num #num >= 0 이 참이면 num 반환, 거짓이면 -num 반환
 
-for _ in range(5):
-	num = list(map(int,input()).split())
-	arr.append(num)
+num = int(input("숫자를 입력하세요: "))
 
-for i in arr:
-    avg = (num[0] + num[1] + num[2] + num[3]) / len(num)
-    if avg >= 80:
-        print("pass")
-        pas1 += 1
-    else:
-        print("fail")
+try:
+    print(f"|{num}| = {abs(num)}")
 
-print(f'합격자는 {pas1}명')
+except ValueError:
+    print("유효하지 않은 입력입니다. 숫자를 입력해주세요.")
