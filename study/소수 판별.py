@@ -14,15 +14,21 @@
 # a = int(input())
 
 # print(num(a))
-def num(a):
-    count = 0
-
-    for j in range(n):
-        count += li[j]
-    count = count/len(li)
-
+era = [1 for i in range(10001)]
 n = int(input())
-for i in range(n):
-    li = list(map(int,input().split()))
-
-print(n)
+for i in range(1001):
+    if i == 0 or i == 1:
+        era[i] = 0
+        continue
+    if era[i] == 0: 
+        continue
+    for j in range(i*j, 10001, i):
+        era[j] = 0
+s = 0
+cnt = 0
+for i in list(map(int,input().split())):
+    if era[i]:
+        s += 1
+        cnt += 1
+ret = f'{(s/cnt):.2f}'
+print(ret)
