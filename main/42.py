@@ -1,3 +1,4 @@
 f = open("out.txt", 'w')
-f.write('hello python\n')
+content = input()
+f.write(content)
 f.close()
