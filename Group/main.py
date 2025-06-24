@@ -1,9 +1,8 @@
 import random
 
 # 단어장 데이터 저장용 (언어별 구분 가능하게 dict 사용)
-korea = []
 chinese = []
-japanes = []
+japanese = []
 eng = []
 
 while True:
@@ -13,9 +12,25 @@ while True:
     # 잘못 입력했을떄
     if language not in ["영어", "중국어", "일본어", '1', '2', '3', '0']:
         language = input("설정 할 언어를 다시 입력해주세요: ")
-        print(f'{language}를 선택하셨습니다')
+        if language == '1':
+            print('영어를 선택하셨습니다')
+        if language == '2':
+            print('중국어를 선택하셨습니다')
+        if language == '3':
+            print('일본어를 선택하셨습니다')
+        elif language=="영어" or language=="일본어" or language=="중국어":
+            print(f'{language}를 선택하셨습니다')    
+            
     else:
-        print(f'{language}를 선택하셨습니다')
+        if language == '1':
+            print('영어를 선택하셨습니다')
+        if language == '2':
+            print('중국어를 선택하셨습니다')
+        if language == '3':
+            print('일본어를 선택하셨습니다')
+        elif language=="영어" or language=="일본어" or language=="중국어":
+            print(f'{language}를 선택하셨습니다')
+
 
     if language == '0':
         break
@@ -42,16 +57,13 @@ while True:
                     print("❗ 단어장이 비어 있습니다. 먼저 단어를 추가하세요.")
                 else: 
                     n = int(input("몇 문제 풀까요? : "))
-
                     # 리스트에서 단어 추출
                     questions = random.sample(eng, min(n, len(eng)))
                     menu = input("뜻을 보고 맞출지, 단어를 보고 맞출지 입력 (뜻/단어): ")
-
                     # (questions, 1) == (반복대상, 시작번호)
                     for i, word in enumerate(questions, 1):
                         if menu == "뜻":
                             answer = input(f"{i}번 문제-'{word['meaning']}'는?: ")
-
                             # strip() = 문자열 양쪽 공백 삭제
                             if answer.strip() == word['word']:
                                 print("✅ 정답!")
@@ -60,7 +72,6 @@ while True:
                                 # 다시 풀기
                                 print(f"❌ 오답! 다시 입력해보세요")
                                 answer = input(f"{i}번 문제 다시풀기!-'{word['meaning']}'는?: ")
-
                                 if answer.strip() == word['word']:
                                     print("✅ 정답!")
                                     correct += 1
@@ -132,14 +143,14 @@ while True:
                                     wrong += 1
             #일본어 일때
             elif language == '일본어' or language == '3':
-                if not japanes:
+                if not japanese:
                     print("❗ 단어장이 비어 있습니다. 먼저 단어를 추가하세요.")
                 else:
                     n = int(input("몇 문제 풀까요? : "))
                     # correct = 0
                     # wrong = 0
                     # 리스트에서 단어 추출
-                    questions = random.sample(japanes, min(n, len(japanes)))
+                    questions = random.sample(japanese, min(n, len(japanese)))
                     menu = input("뜻을 보고 맞출지, 단어를 보고 맞출지 입력 (뜻/단어): ")
 
                     # (questions, 1) == (반복대상, 시작번호)
@@ -212,10 +223,10 @@ while True:
             for i in range(n):
                 word = input("단어 입력: ")
                 meaning = input("뜻 입력: ")
-                japanes.append({'word': word, 'meaning': meaning})
+                japanese.append({'word': word, 'meaning': meaning})
             print()
             print("단어장이 업데이트 되었습니다.")
-            for i, entry in enumerate(japanes, 1):
+            for i, entry in enumerate(japanese, 1):
                 print(f"{i}. {entry['word']} - {entry['meaning']}")
 
 
@@ -236,11 +247,11 @@ while True:
                 for i, entry in enumerate(chinese, 1):
                     print(f"{i}. {entry['word']} - {entry['meaning']}")
         if language=="일본어":
-            if not japanes:
+            if not japanese:
                 print("단어장이 비어 있습니다.")
             else:
                 print("현재 단어장: ")
-                for i, entry in enumerate(japanes, 1):
+                for i, entry in enumerate(japanese, 1):
                     print(f"{i}. {entry['word']} - {entry['meaning']}")
                     
     else:
